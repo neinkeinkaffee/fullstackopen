@@ -52,7 +52,7 @@ const App = () => {
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
       <p>average {computeAverage()}</p>
-      <p>positive {computePositive()}</p>
+      <p>positive {computePositive()}%</p>
     </div>
   )
 }
