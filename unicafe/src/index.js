@@ -28,6 +28,18 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  const computeAverage = () => {
+    if (good + bad === 0)
+      return 0
+    return (good - bad)/(good + bad)
+  }
+
+  const computePositive = () => {
+    if (good + bad + neutral === 0)
+      return 0
+    return good/(good + neutral + bad)
+  }
+
   return (
     <div>
       <h1>give feedback</h1>
@@ -39,6 +51,8 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>average {computeAverage()}</p>
+      <p>positive {computePositive()}</p>
     </div>
   )
 }
