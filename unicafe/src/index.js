@@ -9,9 +9,13 @@ const Button = (props) => {
   )
 }
 
+const Statistic = (props) => {
+  return <tr><td>{props.text}</td><td>{props.value}</td></tr>
+}
+
 const Statistics = (props) => {
   if (props.good + props.bad + props.neutral === 0)
-    return <p>No feedback given</p>
+    return <table><tbody><tr><td>No feedback given</td></tr></tbody></table>
 
   const computeAverage = () => {
     if (props.good + props.bad === 0)
@@ -28,11 +32,15 @@ const Statistics = (props) => {
   return (
     <div>
       <h1>statistics</h1>
-      <p>good {props.good}</p>
-      <p>neutral {props.neutral}</p>
-      <p>bad {props.bad}</p>
-      <p>average {computeAverage()}</p>
-      <p>positive {computePositive()}%</p>
+      <table>
+        <tbody>
+          <Statistic text="good" value={props.good} />
+          <Statistic text="neutral" value={props.neutral} />
+          <Statistic text="bad" value={props.bad} />
+          <Statistic text="average" value={computeAverage()} />
+          <Statistic text="positive" value={computePositive()} />
+        </tbody>
+      </table>
     </div>
   )
 }
